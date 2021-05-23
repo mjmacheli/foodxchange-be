@@ -4,7 +4,10 @@
   "description": "food exchange backend",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev --respawn --pretty --transpile-only ./app/index.ts",
+    "dev:local": "ts-node-dev --poll --respawn --pretty --transpile-only ./app/index.ts",
+    "start": "NODE_PATH=./build node build/index.js",
+    "build": "tsc -p .",
+    "dev": "nodemon --legacy-watch --watch  app/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mj macheli",
@@ -22,6 +25,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "helmet": "^4.6.0"
+    "helmet": "^4.6.0",
+    "nodemon": "^2.0.7"
   }
 }
