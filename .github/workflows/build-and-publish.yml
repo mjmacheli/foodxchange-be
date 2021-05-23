@@ -1,0 +1,15 @@
+name: build and publish
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: build Image
+        run: docker build . -t ghcr.io/mjmacheli/foodxchange-be:${{ github.sha }}
