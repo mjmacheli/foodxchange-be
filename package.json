@@ -1,0 +1,11 @@
+{
+  "name": "fdxchangebe",
+  "version": "1.0.0",
+  "description": "food exchange backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mj macheli",
+  "license": "ISC"
+}
