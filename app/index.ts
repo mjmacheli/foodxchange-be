@@ -3,15 +3,15 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
 
-import {CommonRoutesConfig} from "./common/common.routes.config";
-import {UsersRoutes} from "./users/users.routes.config";
+import {CommonRoutesConfig} from "./common/routesConfig";
+import {UserRoutes} from "./users/usersRoutesConfig";
 
 dotenv.config();
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT as string, 10);
 const routes: any = [];
-routes.push(new UsersRoutes(app));
+routes.push(new UserRoutes(app));
 
 app.use(helmet());
 app.use(cors());
