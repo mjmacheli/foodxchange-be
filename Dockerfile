@@ -5,4 +5,5 @@ COPY ["package.json", "yarn.lock", "npm-shrinkwrap.json*", "./"]
 RUN yarn
 COPY . .
 EXPOSE 3001
+ENV NODE_ENV=production
 CMD ["yarn", "run", "dev:local"]
