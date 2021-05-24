@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 class UserController {
 
     getUsers(req: Request, res: Response) {
-        res.status(200).send(`Get to users`);
+        res.status(200).send(`Get to users with actions`);
     }
 
     getUserById(req: Request, res: Response) {

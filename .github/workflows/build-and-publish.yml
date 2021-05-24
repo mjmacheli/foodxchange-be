@@ -1,9 +1,9 @@
 name: build and publish
 on:
   push:
-    branches: [ master ]
+    branches: [ dev ]
   pull_request:
-    branches: [ master ]
+    branches: [ dev ]
   workflow_dispatch:
 env:
   image-name: ghcr.io/mjmacheli/foodxchange-be:${{ github.sha }}
