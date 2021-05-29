@@ -28,3 +28,5 @@ try {
 } catch (error) {
     console.error(`Error occured: ${error.message}`);
 }
+
+export default app;
