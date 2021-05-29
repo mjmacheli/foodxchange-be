@@ -28,6 +28,12 @@ class UserService implements Crud {
     findById(resourceId: any) {
         return `Reading.. ${resourceId}`;
     }
+
+
+    findByEmail(resourceId: any) {
+        return `Reading.. ${resourceId}`;
+    }
+
     deleteById(resourceId: any) {
         return `Bye ${resourceId}`;
     }

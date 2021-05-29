@@ -7,7 +7,7 @@
     "dev:local": "ts-node-dev --poll --respawn --pretty --transpile-only ./app/index.ts",
     "start": "NODE_PATH=./build node build/index.ts",
     "build": "tsc -p .",
-    "dev": "nodemon --legacy-watch --watch  app/index.ts",
+    "dev": "nodemon --legacy-watch --watch  ./app/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mj macheli",

@@ -28,9 +28,10 @@ class UserController {
     }
 
     put(req: Request, res: Response) {
+        console.log('put ', req.body)
         const userService = UserService.getInstance();
         userService.updateById(req.body);
-        res.status(204).send(``);
+        res.status(204).send(`okae`);
     }
 
     removeUser(req: Request, res: Response) {
