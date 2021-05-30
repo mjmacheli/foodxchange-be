@@ -18,8 +18,8 @@ class UserRoutes extends CommonRoutesConfig implements configureRoutes {
         this.app.get(`/users`, [userController.getUsers]);
 
         this.app.post(`/users`, [ 
-            userMiddleware.validateRequiredUserFields, 
-            userMiddleware.validateEmail, 
+            // userMiddleware.validateRequiredUserFields, 
+            // userMiddleware.validateEmail, 
             userController.createUser]);
 
         this.app.put(`/users/:userId`, [ 

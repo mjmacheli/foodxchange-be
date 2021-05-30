@@ -1,4 +1,5 @@
 import { Crud } from "../../common/interfaces/crudInterface";
+import { UserRepository } from '../repositories/userRepository';
 
 class UserService implements Crud {
 
@@ -18,7 +19,8 @@ class UserService implements Crud {
     };
 
     create(resource: any){
-        return `added ${resource}`;
+        const userRepository = UserRepository.getInstance();
+        return userRepository.createUser(resource);
     }
 
     updateById(resourceId: any) {

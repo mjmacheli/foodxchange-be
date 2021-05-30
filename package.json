@@ -4,11 +4,14 @@
   "description": "food exchange backend",
   "main": "index.js",
   "scripts": {
+    "predev": "yarn run swagger",
+    "prebuild": "yarn run swagger",
     "dev:local": "ts-node-dev --poll --respawn --pretty --transpile-only ./app/index.ts",
     "start": "NODE_PATH=./build node build/index.ts",
     "build": "tsc -p .",
     "dev": "nodemon --legacy-watch --watch  ./app/index.ts",
-    "test": "nodemon --watch . --ext ts --exec \"mocha -r ts-node/register test/**/*.ts\""
+    "test": "nodemon --watch . --ext ts --exec \"mocha -r ts-node/register test/**/*.ts\"",
+    "swagger": "tsoa spec"
   },
   "author": "mj macheli",
   "license": "ISC",
@@ -18,7 +21,9 @@
     "@types/mocha": "^8.2.2",
     "@types/node": "^15.6.0",
     "@types/supertest": "^2.0.11",
+    "@types/swagger-ui-express": "^4.1.2",
     "chai": "^4.3.4",
+    "concurrently": "^6.2.0",
     "mocha": "^8.4.0",
     "supertest": "^6.1.3",
     "ts-node-dev": "^1.1.6",
@@ -32,7 +37,14 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.7",
-    "swagger-express-ts": "^1.1.0"
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "short-uuid": "^4.2.0",
+    "swagger-express-ts": "^1.1.0",
+    "swagger-ui-express": "^4.1.6",
+    "tsoa": "^3.8.0",
+    "typeorm": "^0.2.32"
   }
 }

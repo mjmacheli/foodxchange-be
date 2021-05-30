@@ -1,8 +1,11 @@
 import { Request, Response } from "express";
+import { Get, Route } from "tsoa";
 import {UserService} from "../services/userService";
 
+@Route('users')
 class UserController {
 
+    @Get("/")
     getUsers( _:Request , res: Response) {
         const userService = UserService.getInstance();
         const users = userService.findAll(100, 0);
