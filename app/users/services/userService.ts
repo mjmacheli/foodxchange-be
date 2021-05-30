@@ -1,4 +1,5 @@
 import { Crud } from "../../common/interfaces/crudInterface";
+import { UserRepository } from '../repositories/userRepository';
 
 class UserService implements Crud {
 
@@ -18,7 +19,8 @@ class UserService implements Crud {
     };
 
     create(resource: any){
-        return `added ${resource}`;
+        const userRepository = UserRepository.getInstance();
+        return userRepository.createUser(resource);
     }
 
     updateById(resourceId: any) {
@@ -28,6 +30,14 @@ class UserService implements Crud {
     findById(resourceId: any) {
         return `Reading.. ${resourceId}`;
     }
+
+    async findByEmail(email: any) {
+        const userRepository = UserRepository.getInstance();
+        const user = await userRepository.findByEmail(email)
+        console.log('user svc ', user);
+        return user;
+    }
+
     deleteById(resourceId: any) {
         return `Bye ${resourceId}`;
     }
