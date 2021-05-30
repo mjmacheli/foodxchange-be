@@ -38,6 +38,10 @@ class UserRoutes extends CommonRoutesConfig implements configureRoutes {
             userMiddleware.validateUser,
             userMiddleware.getUserId,
             userController.getUserById]);
+
+        this.app.post(`/users/auth`, [
+            userMiddleware.validateRequiredUserFields,
+            userController.auth]);
     }
 
 }

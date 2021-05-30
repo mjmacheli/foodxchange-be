@@ -37,7 +37,9 @@ class UserRepository {
 
     findByEmail = async (email: string): Promise<User | null> => {
         const userRepository = getRepository(User);
+        console.log('email ', {email})
         const user = await userRepository.findOne({ email });
+        console.log('usr ', user)
         if (!user) return null;
         return user;
     };

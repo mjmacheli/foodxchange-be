@@ -6,13 +6,16 @@ import {
     UpdateDateColumn,
 } from "typeorm";
 
-@Entity()
+@Entity({ name: "users" })
 class User {
     @PrimaryGeneratedColumn()
     id!: number;
 
     @Column()
     names!: string;
+
+    @Column()
+    password!: string;
 
     @Column()
     location!: string;

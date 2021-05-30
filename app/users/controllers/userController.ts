@@ -18,6 +18,17 @@ class UserController {
         res.status(200).send(user);
     }
 
+    async auth(req: Request, res: Response) {
+        const userService = UserService.getInstance();
+        const user = await userService.findByEmail(req.body.email);
+        if (user && (req.body.password === user.password)) {
+            res.status(200).json({user});
+        } else {
+            res.status(400).json({error: 'Invalid email/password'})
+        }
+        
+    }
+
     createUser(req: Request, res: Response) {
         const userService = UserService.getInstance();
         const user = userService.create(req.body);
