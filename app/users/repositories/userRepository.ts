@@ -28,9 +28,16 @@ class UserRepository {
         });
     };
 
-    getUser = async (id: number): Promise<User | null> => {
+    findById = async (id: number): Promise<User | null> => {
         const userRepository = getRepository(User);
         const user = await userRepository.findOne({ id: id });
+        if (!user) return null;
+        return user;
+    };
+
+    findByEmail = async (email: string): Promise<User | null> => {
+        const userRepository = getRepository(User);
+        const user = await userRepository.findOne({ email });
         if (!user) return null;
         return user;
     };
