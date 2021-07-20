@@ -5,9 +5,9 @@ class UserService implements Crud {
 
     private static instance: UserService;
 
-    constructor() {}
+    constructor() { }
 
-    static getInstance() : UserService {
+    static getInstance(): UserService {
         if (!UserService.instance) {
             UserService.instance = new UserService();
         }
@@ -18,7 +18,7 @@ class UserService implements Crud {
         return "All Users svc"
     };
 
-    create(resource: any){
+    create(resource: any) {
         const userRepository = UserRepository.getInstance();
         return userRepository.createUser(resource);
     }
@@ -34,7 +34,6 @@ class UserService implements Crud {
     async findByEmail(email: any) {
         const userRepository = UserRepository.getInstance();
         const user = await userRepository.findByEmail(email)
-        console.log('user svc ', user);
         return user;
     }
 
@@ -42,7 +41,7 @@ class UserService implements Crud {
         return `Bye ${resourceId}`;
     }
 
-    patchById(resourceId: any){
+    patchById(resourceId: any) {
         return `patch ${resourceId}`;
     }
 
