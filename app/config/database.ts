@@ -3,6 +3,7 @@ import User from "../users/models/User";
 import Product from "../products/models/Product";
 import Cart from "../carts/models/cart";
 import Blog from "../blog/models/Blog";
+import Recipe from "../recipe/models/Recipe";
 
 const config: ConnectionOptions = {
   type: "postgres",
@@ -11,7 +12,7 @@ const config: ConnectionOptions = {
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  entities: [User, Product, Cart, Blog],
+  entities: [User, Product, Cart, Blog, Recipe],
   synchronize: true,
 };
 
