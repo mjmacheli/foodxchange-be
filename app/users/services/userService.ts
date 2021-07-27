@@ -1,5 +1,6 @@
 import { Crud } from "../../common/interfaces/crudInterface";
 import { UserRepository } from '../repositories/userRepository';
+import { CartRepository } from '../../carts/repositories/Cartrepository'
 
 class UserService implements Crud {
 
@@ -18,9 +19,13 @@ class UserService implements Crud {
         return "All Users svc"
     };
 
-    create(resource: any) {
+    async create(resource: any) {
         const userRepository = UserRepository.getInstance();
-        return userRepository.createUser(resource);
+        const cartRepository = CartRepository.getInstance();
+        const newUser = await userRepository.createUser(resource);
+
+        await cartRepository.createCart({ user: newUser })
+        return newUser
     }
 
     updateById(resourceId: any) {
