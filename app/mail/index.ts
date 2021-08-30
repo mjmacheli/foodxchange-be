@@ -26,7 +26,7 @@ const baseMail = async (from: string, topic: string, body: string) => {
     },
     messageId: "msg_id",
     date: new Date(),
-    to: "machelimail@gmail.com",
+    to: "ermudau@gmail.com",
     subject: topic,
     text: "hai",
     html: `${from}`,
