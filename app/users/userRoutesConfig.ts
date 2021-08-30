@@ -1,49 +1,53 @@
 import { CommonRoutesConfig, configureRoutes } from "../common/routesConfig";
 import { Application } from "express";
-import {UserController} from "./controllers/userController";
+import { UserController } from "./controllers/userController";
 import { UserMiddleware } from "./middleware/userMiddleware";
 
 class UserRoutes extends CommonRoutesConfig implements configureRoutes {
+  constructor(app: Application) {
+    super(app, "UserRoutes");
+    this.configureRoutes();
+  }
 
-    constructor(app: Application){
-        super(app, 'UserRoutes');
-        this.configureRoutes();
-    }
+  configureRoutes() {
+    const userController = new UserController();
+    const userMiddleware = UserMiddleware.getInstance();
 
-    configureRoutes() {
+    this.app.get(`/users`, [userController.getUsers]);
 
-        const userController = new UserController();
-        const userMiddleware = UserMiddleware.getInstance();
+    this.app.post(`/users`, [
+      userMiddleware.validateRequiredUserFields,
+      userMiddleware.validateEmail,
+      userController.createUser,
+    ]);
 
-        this.app.get(`/users`, [userController.getUsers]);
+    this.app.put(`/users/:userId`, [
+      userMiddleware.validateUser,
+      userMiddleware.getUserId,
+      userController.put,
+    ]);
 
-        this.app.post(`/users`, [ 
-            userMiddleware.validateRequiredUserFields, 
-            userMiddleware.validateEmail, 
-            userController.createUser]);
+    this.app.patch(`/users/:userId`, [
+      userMiddleware.validateUser,
+      userMiddleware.getUserId,
+      userController.patch,
+    ]);
 
-        this.app.put(`/users/:userId`, [ 
-            userMiddleware.validateUser, 
-            userMiddleware.getUserId,
-            userController.put]);
+    this.app.delete(`/users/:userId`, [userController.removeUser]);
 
-        this.app.patch(`/users/:userId`, [
-            userMiddleware.validateUser,
-            userMiddleware.getUserId,
-            userController.patch]);
+    this.app.get(`/users/:userId`, [
+      userMiddleware.validateUser,
+      userMiddleware.getUserId,
+      userController.getUserById,
+    ]);
 
-        this.app.delete(`/users/:userId`, [userController.removeUser]);
+    this.app.post(`/users/auth`, [
+      userMiddleware.validateRequiredUserFields,
+      userController.auth,
+    ]);
 
-        this.app.get(`/users/:userId`, [
-            userMiddleware.validateUser,
-            userMiddleware.getUserId,
-            userController.getUserById]);
-
-        this.app.post(`/users/auth`, [
-            userMiddleware.validateRequiredUserFields,
-            userController.auth]);
-    }
-
+    this.app.post(`/users/mail`, [userController.sendEmail]);
+  }
 }
 
-export { UserRoutes }
+export { UserRoutes };
