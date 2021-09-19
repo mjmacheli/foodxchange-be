@@ -1,6 +1,6 @@
+import FarmProject from "../models/FarmProject";
 import { getRepository } from "typeorm";
 import Project from "../models/Project";
-import Hub from '../models/Project';
 
 class ProjectRepository {
 
@@ -15,13 +15,13 @@ class ProjectRepository {
         return ProjectRepository.instance;
     }
 
-    getProjects = async (): Promise<Array<Hub>> => {
-        const projectRepository = getRepository(Hub);
+    getProjects = async (): Promise<Array<Project>> => {
+        const projectRepository = getRepository(Project);
         return projectRepository.find();
     };
 
     createProject = async (newProject: Project): Promise<Project> => {
-        const projectRepository = getRepository(Hub);
+        const projectRepository = getRepository(Project);
         const project = new Project();
         return projectRepository.save({
             ...project,
@@ -41,6 +41,22 @@ class ProjectRepository {
         const projects = await projectRepository.find({ where: { hubId: id }});;
         if (!projects) return [];
         return projects;
+    };
+
+    findByUserId = async (id: number): Promise<Array<FarmProject | null>> => {
+        const projectRepository = getRepository(FarmProject);
+        const projects = await projectRepository.find({ where: { hubId: id }});;
+        if (!projects) return [];
+        return projects;
+    };
+
+    addUserProject = async (newProject: FarmProject): Promise<FarmProject> => {
+        const projectRepository = getRepository(FarmProject);
+        const project = new FarmProject();
+        return projectRepository.save({
+            ...project,
+            ...newProject,
+        });
     };
 }
 

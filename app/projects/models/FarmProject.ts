@@ -6,21 +6,32 @@ import {
     UpdateDateColumn,
 } from "typeorm";
 
-
-@Entity({ name: "hub" })
-class Hub {
+@Entity({ name: "farm-project" })
+class FarmProject {
 
     @PrimaryGeneratedColumn()
     id!: number;
 
     @Column()
+    farmId!: number;
+
+    @Column()
     title!: string;
 
     @Column()
-    description!: string;
+    subtitle!: string;
 
     @Column()
-    latlong!: string;
+    mainTitle!: string;
+
+    @Column()
+    excerpt!: string;
+
+    @Column()
+    img!: string;
+
+    @Column()
+    body!: string;
 
     @CreateDateColumn()
     createdAt!: Date;
@@ -29,4 +40,4 @@ class Hub {
     updatedAt!: Date;
 }
 
-export default Hub;
+export default FarmProject;
