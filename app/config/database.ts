@@ -4,7 +4,7 @@ import Product from "../products/models/Product";
 import Cart from "../carts/models/cart";
 import Blog from "../blog/models/Blog";
 import Recipe from "../recipe/models/Recipe";
-import Hub from "hubs/models/Hub";
+import Hub from "../hubs/models/Hub";
 
 const config: ConnectionOptions = {
   type: "postgres",

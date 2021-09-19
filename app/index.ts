@@ -14,7 +14,7 @@ import { UserRoutes } from "./users/userRoutesConfig";
 import { ProductRoutes } from "./products/productRoutesConfig";
 import { BlogRoutes } from "./blog/blogRoutesConfig";
 import { RecipeRoutes } from "./recipe/recipeRoutesConfig";
-import { HubRoutes } from "hubs/hubRoutesConfig";
+import { HubRoutes } from "./hubs/hubRoutesConfig";
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT as string, 10);

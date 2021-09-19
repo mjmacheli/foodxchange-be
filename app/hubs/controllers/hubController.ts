@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import Hub from "hubs/models/Hub";
-import { HubRepository } from "hubs/repositories/hubRepository";
+import Hub from "../models/Hub";
+import { HubRepository } from "../repositories/hubRepository";
 import { Get, Route } from "tsoa";
 import { getRepository } from "typeorm";
 

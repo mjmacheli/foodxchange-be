@@ -6,10 +6,6 @@ import {
     UpdateDateColumn,
 } from "typeorm";
 
-interface Location {
-    latitude!: string;
-    longitude!: string;
-};
 
 @Entity({ name: "hub" })
 class Hub {
@@ -27,7 +23,7 @@ class Hub {
     description!: string;
 
     @Column()
-    latlong!: Location;
+    latlong!: string;
 
     @CreateDateColumn()
     createdAt!: Date;

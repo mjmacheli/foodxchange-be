@@ -10,6 +10,7 @@
     "start": "NODE_PATH=./build node build/index.ts",
     "build": "tsc -p .",
     "dev": "nodemon --legacy-watch --watch  ./app/index.ts",
+    "dev:win": "nodemon --legacy-watch --watch --pretty --transpile-only ./app/index.ts",
     "test": "nodemon --watch . --ext ts --exec \"mocha -r ts-node/register test/**/*.ts\"",
     "swagger": "tsoa spec"
   },
