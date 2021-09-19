@@ -13,6 +13,9 @@ class Project {
     id!: number;
 
     @Column()
+    hubId!: number;
+
+    @Column()
     title!: string;
 
     @Column()
@@ -23,6 +26,9 @@ class Project {
 
     @Column()
     excerpt!: string;
+
+    @Column()
+    img!: string;
 
     @Column()
     body!: string;
