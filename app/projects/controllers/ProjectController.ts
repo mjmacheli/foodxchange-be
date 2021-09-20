@@ -56,6 +56,14 @@ class ProjectController {
         })
       );
     }
+
+    async getProjectByFarmId(req: Request, res: Response) {
+      const projectRepository = ProjectRepository.getInstance();
+      // @ts-ignore
+      const proj = await projectRepository.findByFarmId(req.params.farmId);
+      res.status(200).send(proj);
+    }
+
 }
 
 export { ProjectController };
