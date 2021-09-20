@@ -22,6 +22,9 @@ class Hub {
     @Column()
     latlong!: string;
 
+    @Column()
+    img: string = "https://picsum.photos/700";
+
     @CreateDateColumn()
     createdAt!: Date;
 
