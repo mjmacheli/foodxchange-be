@@ -24,14 +24,14 @@ class ProjectController {
     async getProjectByHubId(req: Request, res: Response) {
       const projectRepository = ProjectRepository.getInstance();
       // @ts-ignore
-      const proj = projectRepository.findByHubId(req.params.hubId);
+      const proj = await projectRepository.findByHubId(req.params.hubId);
       res.status(200).send(proj);
     }
 
     async getProjectByUserId(req: Request, res: Response) {
       const projectRepository = ProjectRepository.getInstance();
       // @ts-ignore
-      const proj = projectRepository.findByUserId(req.params.userId);
+      const proj = await projectRepository.findByUserId(req.params.userId);
       res.status(200).send(proj);
     }
 

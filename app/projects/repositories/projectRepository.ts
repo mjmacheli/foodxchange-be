@@ -38,7 +38,7 @@ class ProjectRepository {
 
     findByHubId = async (id: number): Promise<Array<Project | null>> => {
         const projectRepository = getRepository(Project);
-        const projects = await projectRepository.find({ where: { hubId: id }});;
+        const projects = await projectRepository.find({ where: { hubId: id }});
         if (!projects) return [];
         return projects;
     };

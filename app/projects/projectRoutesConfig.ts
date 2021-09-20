@@ -25,7 +25,6 @@ class ProjectRoutes extends CommonRoutesConfig implements configureRoutes {
       projectController.getProjectByHubId
     ]);
 
-
     this.app.get(`/projects/farm/:id`, [
       projectController.getProjectByUserId
     ]);
