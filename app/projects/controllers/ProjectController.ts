@@ -61,6 +61,8 @@ class ProjectController {
       const projectRepository = ProjectRepository.getInstance();
       // @ts-ignore
       const proj = await projectRepository.findByFarmId(req.params.farmId);
+
+      console.log('pp-- ', proj, ' ',req.params.farmId )
       res.status(200).send(proj);
     }
 
