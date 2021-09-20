@@ -1,7 +1,6 @@
 import Nodemailer from "nodemailer";
 
 const baseMail = async (from: string, topic: string, body: string) => {
-  console.log(" > ", body, " ", topic, " ", from);
   let transporter = Nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -19,7 +18,7 @@ const baseMail = async (from: string, topic: string, body: string) => {
   let mailOptions = {
     from: {
       name: "FoodXChange | Welcome",
-      address: body,
+      address: "test@gmail.com",
     },
     headers: {
       priority: "high",
