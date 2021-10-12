@@ -64,9 +64,18 @@ class ProjectController {
 
     async getProjectByProjectId(req: Request, res: Response) {
       const projectRepository = ProjectRepository.getInstance();
+      // const userRepository = UserRepository.getInstance();
       const proj = await projectRepository.findByProjectId(Number(req.params.projectId));
+      // const farm = await userRepository.findById(proj.)
 
       res.status(200).send(proj);
+    }
+
+    async getUsersInaProject(req: Request, res: Response) {
+
+      const userRepo = ProjectRepository.getInstance();
+      const users = await userRepo.findUsersInaProject(Number(req.params.projectId))
+      res.status(200).send(users);
     }
 
 }

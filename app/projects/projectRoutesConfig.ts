@@ -33,10 +33,13 @@ class ProjectRoutes extends CommonRoutesConfig implements configureRoutes {
       projectController.getProjectByProjectId
     ]);
 
-    this.app.post(`/projects/farm`, [
+    this.app.get(`/projects/get-users-in-proj/:projectId`, [
+      projectController.getUsersInaProject
+    ]);
+
+    this.app.post(`/projects/farm/accept`, [
       projectController.addUserProject
     ]);
-    
   }
 }
 

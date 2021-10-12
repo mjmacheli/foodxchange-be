@@ -1,6 +1,7 @@
 import FarmProject from "../models/FarmProject";
 import { getRepository } from "typeorm";
 import Project from "../models/Project";
+import User from "../../users/models/User";
 
 class ProjectRepository {
 
@@ -71,6 +72,21 @@ class ProjectRepository {
         const projects = await projectRepository.find({ where: { projectId: id }});;
         if (!projects) return [];
         return projects;
+    };
+
+    findUsersInaProject = async (id: number): Promise<Array<User>> => {
+        const projectRepository = getRepository(FarmProject);
+        const projects = await projectRepository.find({ where: { projectId: id }});
+        const userRepository = getRepository(User)
+        let res = new Array<User>();
+        projects.map(p => {
+            const user = userRepository.findOne({id: p.farmId})
+            user.then(u => {
+                u && res.push(u)})
+        })
+        await userRepository.findOne({id: 0})
+        if (!res.length) return [];
+        return res;
     };
 }
 
