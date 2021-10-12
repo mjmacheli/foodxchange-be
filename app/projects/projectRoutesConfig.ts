@@ -14,11 +14,11 @@ class ProjectRoutes extends CommonRoutesConfig implements configureRoutes {
     this.app.get(`/projects`, [projectController.getProjects]);
 
     this.app.post(`/projects`, [
-        projectController.createProject
+      projectController.createProject
     ]);
 
     this.app.get(`/projects/:projectId`, [
-        projectController.getProjectById
+      projectController.getProjectById
     ]);
 
     this.app.get(`/projects/hub/:hubId`, [
@@ -31,7 +31,7 @@ class ProjectRoutes extends CommonRoutesConfig implements configureRoutes {
 
     this.app.post(`/projects/farm`, [
       projectController.addUserProject
-  ]);
+    ]);
     
   }
 }

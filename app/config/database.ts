@@ -7,6 +7,7 @@ import Recipe from "../recipe/models/Recipe";
 import Hub from "../hubs/models/Hub";
 import Project from "../projects/models/Project";
 import FarmProject from "../projects/models/FarmProject";
+import ProjectUpdate from "projectUpdate/models/Update";
 
 const config: ConnectionOptions = {
   type: "postgres",
@@ -15,7 +16,7 @@ const config: ConnectionOptions = {
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  entities: [User, Product, Cart, Blog, Recipe, Hub, Project,FarmProject],
+  entities: [User, Product, Cart, Blog, Recipe, Hub, Project,FarmProject,ProjectUpdate],
   synchronize: true,
 };
 
