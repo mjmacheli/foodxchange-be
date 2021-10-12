@@ -13,12 +13,11 @@ class ProjectUpdateController {
       res.status(200).send({ updates });
     }
 
-    // async getUpdateById(req: Request, res: Response) {
-    //   const hubRepository = ProjectUpdateRepository.getInstance();
-    //   // @ts-ignore
-    //   const hub = hubRepository.findById(req.params.hubId);
-    //   res.status(200).send(hub);
-    // }
+    async getProjectUpdates(req: Request, res: Response) {
+      const updateRepository = ProjectUpdateRepository.getInstance();
+      const updates = await updateRepository.findByFarmProjectId(Number(req.params.id));
+      res.status(200).send(updates);
+    }
 
     async addUpdate(req: Request, res: Response) {
       const updateRepository = getRepository(ProjectUpdate);

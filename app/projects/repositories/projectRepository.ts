@@ -65,6 +65,13 @@ class ProjectRepository {
         if (!projects) return [];
         return projects;
     };
+
+    findByProjectId = async (id: number): Promise<Array<FarmProject | null>> => {
+        const projectRepository = getRepository(FarmProject);
+        const projects = await projectRepository.find({ where: { projectId: id }});;
+        if (!projects) return [];
+        return projects;
+    };
 }
 
 export { ProjectRepository }

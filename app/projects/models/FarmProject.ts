@@ -16,6 +16,9 @@ class FarmProject {
     farmId!: number;
 
     @Column()
+    projectId: number = 1;
+
+    @Column()
     title!: string;
 
     @Column()

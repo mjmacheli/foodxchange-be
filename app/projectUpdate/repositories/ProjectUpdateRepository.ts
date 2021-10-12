@@ -34,6 +34,11 @@ class ProjectUpdateRepository {
         if (!update) return null;
         return update;
     };
+
+    findByFarmProjectId = async (id: number): Promise<Array<ProjectUpdate>> => {
+        const updateRepository = getRepository(ProjectUpdate);
+        return await updateRepository.find({ where: {farmProjectId: id }});
+    };
 }
 
 export { ProjectUpdateRepository }

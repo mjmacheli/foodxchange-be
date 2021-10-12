@@ -23,15 +23,13 @@ class ProjectController {
 
     async getProjectByHubId(req: Request, res: Response) {
       const projectRepository = ProjectRepository.getInstance();
-      // @ts-ignore
-      const proj = await projectRepository.findByHubId(req.params.hubId);
+      const proj = await projectRepository.findByHubId(Number(req.params.hubId));
       res.status(200).send(proj);
     }
 
     async getProjectByUserId(req: Request, res: Response) {
       const projectRepository = ProjectRepository.getInstance();
-      // @ts-ignore
-      const proj = await projectRepository.findByUserId(req.params.userId);
+      const proj = await projectRepository.findByUserId(Number(req.params.userId));
       res.status(200).send(proj);
     }
 
@@ -59,10 +57,15 @@ class ProjectController {
 
     async getProjectByFarmId(req: Request, res: Response) {
       const projectRepository = ProjectRepository.getInstance();
-      // @ts-ignore
-      const proj = await projectRepository.findByFarmId(req.params.farmId);
+      const proj = await projectRepository.findByFarmId(Number(req.params.farmId));
 
-      console.log('pp-- ', proj, ' ',req.params.farmId )
+      res.status(200).send(proj);
+    }
+
+    async getProjectByProjectId(req: Request, res: Response) {
+      const projectRepository = ProjectRepository.getInstance();
+      const proj = await projectRepository.findByProjectId(Number(req.params.projectId));
+
       res.status(200).send(proj);
     }
 

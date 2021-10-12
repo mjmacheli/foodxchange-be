@@ -15,8 +15,7 @@ class HubController {
 
     async getHubById(req: Request, res: Response) {
       const hubRepository = HubRepository.getInstance();
-      // @ts-ignore
-      const hub = hubRepository.findById(req.params.hubId);
+      const hub = hubRepository.findById(Number(req.params.hubId));
       res.status(200).send(hub);
     }
 
