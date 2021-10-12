@@ -11,15 +11,16 @@ class UpdateRoutes extends CommonRoutesConfig implements configureRoutes {
   configureRoutes() {
     const projectUpdateController = new ProjectUpdateController();
 
-    this.app.get(`/updates`, [projectUpdateController.getUpdates]);
+    this.app.get(`/updates/get-project-updates/:id`, [
+      projectUpdateController.getUpdates]);
 
     this.app.post(`/updates`, [
       projectUpdateController.addUpdate
     ]);
 
-    this.app.get(`/project-updates/:id`, [
-      projectUpdateController.getProjectUpdates
-    ]);
+    // this.app.get(`/project-updates/:id`, [
+    //   projectUpdateController.getProjectUpdates
+    // ]);
 
     // this.app.get(`/hubs/:hubId`, [
     //   projectUpdateController.getHubById

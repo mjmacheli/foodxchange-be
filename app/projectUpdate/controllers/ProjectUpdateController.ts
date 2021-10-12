@@ -7,9 +7,11 @@ import { getRepository } from "typeorm";
 @Route("project-update")
 class ProjectUpdateController {
   @Get("/")
-    async getUpdates(_: Request, res: Response) {
-      const updateRepository = getRepository(ProjectUpdate);
-      const updates = await updateRepository.find();
+    async getUpdates(req: Request, res: Response) {
+      const updateRepository = ProjectUpdateRepository.getInstance();
+      const updates = await updateRepository.findUpdatesByFarmProjectId(Number(req.params.id));
+
+      console.log('here ', updates)
       res.status(200).send({ updates });
     }
 
