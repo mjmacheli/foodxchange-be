@@ -16,6 +16,7 @@ import { BlogRoutes } from "./blog/blogRoutesConfig";
 import { RecipeRoutes } from "./recipe/recipeRoutesConfig";
 import { HubRoutes } from "./hubs/hubRoutesConfig";
 import { ProjectRoutes } from "./projects/projectRoutesConfig";
+import { UpdateRoutes } from "./projectUpdate/ProjectUpdateRoutesConfig";
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT as string, 10);
@@ -43,6 +44,7 @@ routes.push(new BlogRoutes(app));
 routes.push(new RecipeRoutes(app));
 routes.push(new HubRoutes(app));
 routes.push(new ProjectRoutes(app));
+routes.push(new UpdateRoutes(app));
 
 try {
   createConnection(dbConfig).then(() => {
@@ -52,7 +54,7 @@ try {
       });
     });
   });
-} catch (error) {
+} catch (error: any) {
   console.error(`Error occured: ${error.message}`);
 }
 

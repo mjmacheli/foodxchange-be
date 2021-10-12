@@ -1,0 +1,35 @@
+import { Request, Response } from "express";
+import ProjectUpdate from "../models/Update";
+import { ProjectUpdateRepository } from "../repositories/ProjectUpdateRepository";
+import { Get, Route } from "tsoa";
+import { getRepository } from "typeorm";
+
+@Route("project-update")
+class ProjectUpdateController {
+  @Get("/")
+    async getUpdates(_: Request, res: Response) {
+      const updateRepository = getRepository(ProjectUpdate);
+      const updates = await updateRepository.find();
+      res.status(200).send({ updates });
+    }
+
+    // async getUpdateById(req: Request, res: Response) {
+    //   const hubRepository = ProjectUpdateRepository.getInstance();
+    //   // @ts-ignore
+    //   const hub = hubRepository.findById(req.params.hubId);
+    //   res.status(200).send(hub);
+    // }
+
+    async addUpdate(req: Request, res: Response) {
+      const updateRepository = getRepository(ProjectUpdate);
+      const update = new ProjectUpdate();
+      res.status(201).send(
+        updateRepository.save({
+          ...req.body,
+          ...update,
+        })
+      );
+    }
+}
+
+export { ProjectUpdateController };

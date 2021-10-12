@@ -6,7 +6,6 @@ import {
     UpdateDateColumn,
 } from "typeorm";
 
-
 @Entity({ name: "updates" })
 class ProjectUpdate {
 

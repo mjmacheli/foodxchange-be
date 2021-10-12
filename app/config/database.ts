@@ -7,7 +7,7 @@ import Recipe from "../recipe/models/Recipe";
 import Hub from "../hubs/models/Hub";
 import Project from "../projects/models/Project";
 import FarmProject from "../projects/models/FarmProject";
-import ProjectUpdate from "projectUpdate/models/Update";
+import ProjectUpdate from "../projectUpdate/models/Update";
 
 const config: ConnectionOptions = {
   type: "postgres",
