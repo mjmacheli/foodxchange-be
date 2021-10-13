@@ -22,7 +22,7 @@ class ProjectUpdate {
     update!: string;
 
     @Column()
-    img: string = "https://picsum.photos/700";
+    img!: string;
 
     @CreateDateColumn()
     createdAt!: Date;
