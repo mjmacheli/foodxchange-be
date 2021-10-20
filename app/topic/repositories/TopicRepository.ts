@@ -1,6 +1,6 @@
 import { getRepository } from "typeorm";
 
-class TopicRepository {
+class ProductRepository {
   private static instance: ProductRepository;
 
   constructor() {}

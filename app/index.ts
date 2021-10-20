@@ -17,6 +17,7 @@ import { RecipeRoutes } from "./recipe/recipeRoutesConfig";
 import { HubRoutes } from "./hubs/hubRoutesConfig";
 import { ProjectRoutes } from "./projects/projectRoutesConfig";
 import { UpdateRoutes } from "./projectUpdate/ProjectUpdateRoutesConfig";
+import { TopicRoutes } from "./topics/TopicsRoutesConfig";
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT as string, 10);
@@ -45,6 +46,7 @@ routes.push(new RecipeRoutes(app));
 routes.push(new HubRoutes(app));
 routes.push(new ProjectRoutes(app));
 routes.push(new UpdateRoutes(app));
+routes.push(new TopicRoutes(app));
 
 try {
   createConnection(dbConfig).then(() => {
