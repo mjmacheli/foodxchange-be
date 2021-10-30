@@ -18,6 +18,7 @@ import { HubRoutes } from "./hubs/hubRoutesConfig";
 import { ProjectRoutes } from "./projects/projectRoutesConfig";
 import { UpdateRoutes } from "./projectUpdate/ProjectUpdateRoutesConfig";
 import { TopicRoutes } from "./topics/TopicsRoutesConfig";
+import { ChatsRoutes } from "./chats/chatsRoutesConfig";
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT as string, 10);
@@ -47,6 +48,7 @@ routes.push(new HubRoutes(app));
 routes.push(new ProjectRoutes(app));
 routes.push(new UpdateRoutes(app));
 routes.push(new TopicRoutes(app));
+routes.push(new ChatsRoutes(app));
 
 try {
   createConnection(dbConfig).then(() => {
