@@ -9,6 +9,7 @@ import Project from "../projects/models/Project";
 import FarmProject from "../projects/models/FarmProject";
 import ProjectUpdate from "../projectUpdate/models/Update";
 import Topic from "../topics/models/Topic";
+import Chats from "../chats/models/Chats";
 
 const config: ConnectionOptions = {
   type: "postgres",
@@ -17,7 +18,7 @@ const config: ConnectionOptions = {
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  entities: [User, Product, Cart, Blog, Recipe, Hub, Project,FarmProject,ProjectUpdate, Topic],
+  entities: [User, Product, Cart, Blog, Recipe, Hub, Project,FarmProject,ProjectUpdate, Topic, Chats],
   synchronize: true,
 };
 
