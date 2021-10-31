@@ -18,6 +18,13 @@ class ChatsRepository {
     return chatsRepository.find();
   };
 
+  getAvatar = async (image: string): Promise<string> => {
+    const chatsRepository = getRepository(Chats);
+    const img = await chatsRepository.findOne({ image });
+    if (!img) return '';
+    return img.image;
+  };
+
   createChats = async (newChats: Chats): Promise<Chats> => {
     const chatsRepository = getRepository(Chats);
     const chats = new Chats();

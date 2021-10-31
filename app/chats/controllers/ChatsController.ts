@@ -12,11 +12,11 @@ class ChatsController {
     res.status(200).send({ chats });
   }
 
-  //   getUserById(req: Request, res: Response) {
-  //     const productService = ProductService.getInstance();
-  //     const product = productService.findById(req.params.userId);
-  //     res.status(200).send(product);
-  //   }
+  async getAvatar(req: Request, res: Response) {
+    const chatsRepository = getRepository(Chats);
+    const img = await chatsRepository.findOne({ image: req.params.image });
+    res.status(200).send(img);
+  }
 
   async createChats(req: Request, res: Response) {
     const chatsRepository = await getRepository(Chats);
