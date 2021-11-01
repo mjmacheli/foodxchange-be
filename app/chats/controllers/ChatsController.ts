@@ -14,7 +14,7 @@ class ChatsController {
 
   async getAvatar(req: Request, res: Response) {
     const chatsRepository = getRepository(Chats);
-    const img = await chatsRepository.findOne({ image: req.body.email });
+    const img = await chatsRepository.findOne({ userId: req.body.email });
     res.status(200).send(img);
   }
 
