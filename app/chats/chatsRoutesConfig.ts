@@ -15,7 +15,7 @@ class ChatsRoutes extends CommonRoutesConfig implements configureRoutes {
 
     this.app.post(`/chats`, [chatsController.createChats]);
 
-    this.app.post(`/chats/:image`, [chatsController.getAvatar]);
+    this.app.post(`/avatar`, [chatsController.getAvatar]);
   }
 }
 

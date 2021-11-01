@@ -14,14 +14,13 @@ class ChatsController {
 
   async getAvatar(req: Request, res: Response) {
     const chatsRepository = getRepository(Chats);
-    const img = await chatsRepository.findOne({ image: req.params.image });
+    const img = await chatsRepository.findOne({ image: req.body.email });
     res.status(200).send(img);
   }
 
   async createChats(req: Request, res: Response) {
     const chatsRepository = await getRepository(Chats);
     const chats = new Chats();
-    console.log("rec ", chats);
     res.status(201).send(
       chatsRepository.save({
         ...req.body,
