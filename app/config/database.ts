@@ -18,7 +18,7 @@ const config: ConnectionOptions = {
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  entities: [User, Product, Cart, Blog, Recipe, Hub, Project,FarmProject,ProjectUpdate, Topic, Chats],
+  entities: [ Chats],
   synchronize: true,
 };
 

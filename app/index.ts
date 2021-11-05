@@ -40,14 +40,6 @@ app.use(
   })
 );
 
-routes.push(new UserRoutes(app));
-routes.push(new ProductRoutes(app));
-routes.push(new BlogRoutes(app));
-routes.push(new RecipeRoutes(app));
-routes.push(new HubRoutes(app));
-routes.push(new ProjectRoutes(app));
-routes.push(new UpdateRoutes(app));
-routes.push(new TopicRoutes(app));
 routes.push(new ChatsRoutes(app));
 
 try {
